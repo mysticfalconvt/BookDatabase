@@ -1219,16 +1219,6 @@
   version "2.1.4"
   resolved "https://registry.npmjs.org/@sanity/generate-help-url/-/generate-help-url-2.1.4.tgz#515df06e2e2ea27268afc2fa568a82499dc394d7"
 
-"@sanity/google-maps-input@^2.1.6":
-  version "2.1.6"
-  resolved "https://registry.npmjs.org/@sanity/google-maps-input/-/google-maps-input-2.1.6.tgz#97ad91d15a69dababa79df22a377d7c04c589927"
-  dependencies:
-    "@sanity/field" "2.1.6"
-    "@sanity/react-hooks" "2.1.4"
-    "@sanity/types" "2.1.4"
-    classnames "^2.2.5"
-    rxjs "^6.5.3"
-
 "@sanity/icons@^1.0.0":
   version "1.0.1"
   resolved "https://registry.npmjs.org/@sanity/icons/-/icons-1.0.1.tgz#5a570e7ee3b400c7a4b94dfab1d656d37ce1f765"
@@ -2290,10 +2280,6 @@ camelcase@^1.0.2:
 camelcase@^4.1.0:
   version "4.1.0"
   resolved "https://registry.npmjs.org/camelcase/-/camelcase-4.1.0.tgz#d545635be1e33c542649c69173e5de6acfae34dd"
-
-camelcase@^5.0.0:
-  version "5.3.1"
-  resolved "https://registry.npmjs.org/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
 
 camelize@^1.0.0:
   version "1.0.0"
@@ -6832,12 +6818,6 @@ react-hot-loader@^4.12.11:
 react-icon-base@^2.1.2:
   version "2.1.2"
   resolved "https://registry.npmjs.org/react-icon-base/-/react-icon-base-2.1.2.tgz#a17101dad9c1192652356096860a9ab43a0766c7"
-
-react-icons@^3.11.0:
-  version "3.11.0"
-  resolved "https://registry.npmjs.org/react-icons/-/react-icons-3.11.0.tgz#2ca2903dfab8268ca18ebd8cc2e879921ec3b254"
-  dependencies:
-    camelcase "^5.0.0"
 
 react-intl@^2.2.2:
   version "2.9.0"

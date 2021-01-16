@@ -4,7 +4,7 @@
     "name": "BooksDatabase"
   },
   "api": {
-    "projectId": "wlkntzt9",
+    "projectId": "ih25y9d1",
     "dataset": "production"
   },
   "plugins": [
@@ -12,8 +12,7 @@
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/desk-tool",
-    "@sanity/google-maps-input"
+    "@sanity/desk-tool"
   ],
   "env": {
     "development": {
