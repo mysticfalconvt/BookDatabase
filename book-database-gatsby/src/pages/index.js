@@ -19,7 +19,9 @@ function filterBooks(allBooks, tags) {
 }
 
 export default function Index({ data }) {
-  document.body.style.margin = "0px";
+  useEffect(() => {
+    document.body.style.margin = "0px";
+  }, []);
   const [tagList, setTaglist] = useState([...data.tags.nodes]);
   const [selectedTags, setSelectedTags] = useState([]);
   const allBooks = data.allBooks.nodes;
