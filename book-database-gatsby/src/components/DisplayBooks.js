@@ -13,7 +13,9 @@ const DisplayBookStyles = styled.div`
     display: grid;
     grid-gap: 1fr;
     grid-template-columns: repeat(3, 1fr);
-    /* overflow: scroll; */
+    grid-auto-rows: max-content;
+    overflow: auto;
+
     @media (max-width: 1000px) {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -31,6 +33,7 @@ const DisplayBookStyles = styled.div`
     );
     border-radius: 1rem;
     margin: 1rem 1rem;
+    text-align: center;
     padding: 0.5rem;
     box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
     justify-content: space-between;
