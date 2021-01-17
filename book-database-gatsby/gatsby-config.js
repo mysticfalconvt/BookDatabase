@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: "Best Book Database Ever",
     description: "Social Justice Book Search",
-    siteUrl: "bookdatabase.netlify.app",
+    siteUrl: "https://bookdatabase.netlify.app/",
   },
   plugins: [
     {
