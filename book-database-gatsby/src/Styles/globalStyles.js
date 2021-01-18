@@ -75,8 +75,8 @@ export const GlobalStyles = styled.div`
       rgba(255, 255, 255, 0.8),
       rgba(255, 255, 255, 0.3)
     );
-    height: 20rem;
-    width: 20rem;
+    height: 16rem;
+    width: 16rem;
     position: absolute;
     border-radius: 50%;
   }
@@ -88,8 +88,8 @@ export const GlobalStyles = styled.div`
       rgba(255, 255, 255, 0.8),
       rgba(255, 255, 255, 0.3)
     );
-    height: 22rem;
-    width: 22rem;
+    height: 20rem;
+    width: 20rem;
     position: absolute;
     border-radius: 50%;
   }
@@ -103,7 +103,7 @@ export const GlobalStyles = styled.div`
     left: 5%;
   }
   .circle3 {
-    top: 8%;
+    top: 4%;
     left: 2%;
   }
   .circle4 {

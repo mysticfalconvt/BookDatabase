@@ -9,10 +9,14 @@ const BookPageStyles = styled.div`
   padding: 2rem;
   display: grid;
   grid-gap: 2rem;
-  grid-template-columns: repeat(2, minmax(200px, 1fr));
-
+  grid-template-columns: minmax(200px, auto) auto;
+  grid-column: span 2;
+  @media (max-width: 600px) {
+    grid-template-columns: auto;
+  }
   .image {
     border-radius: 5%;
+    max-height: max-content;
   }
 `;
 
