@@ -8,7 +8,7 @@ const DisplayBookStyles = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  /* overflow: scroll; */
+  overflow: auto;
 
   .cards {
     display: grid;
@@ -39,12 +39,13 @@ const DisplayBookStyles = styled.div`
     box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
     justify-content: space-between;
     /* overflow: auto; */
+    overflow-y: scroll;
   }
 
   .bookImage {
     display: block;
     border-radius: 1rem;
-    overflow: auto;
+    /* overflow: auto; */
   }
 `;
 
@@ -55,8 +56,8 @@ export default function DisplayBooks(props) {
       <div className="cards">
         {books.map((book) => {
           return (
-            <Link to={`/book/${book.slug.current}`}>
-              <div className="card" key={book.slug.current}>
+            <Link to={`/book/${book.slug.current}`} key={book.slug.current}>
+              <div className="card">
                 <Img
                   className="bookImage"
                   fluid={book.image.asset.fluid}

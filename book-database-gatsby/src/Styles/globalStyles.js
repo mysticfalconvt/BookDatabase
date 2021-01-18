@@ -19,7 +19,6 @@ export const GlobalStyles = styled.div`
     text-align: center;
     height: max-content;
     margin: 0;
-    /* flex-basis: 0 0 100%; */
   }
   h2,
   p {
@@ -132,34 +131,9 @@ export const GlobalStyles = styled.div`
     }
   }
 
-  .link {
-    display: flex;
-    margin: 2rem 0rem;
-    padding: 1rem 5rem;
-    align-items: center;
-  }
-  .link h2 {
-    padding: 0rem 2rem;
-  }
-
   .books {
     flex: 2;
-  }
-
-  .status {
-    margin-bottom: 3rem;
-  }
-
-  .status input {
-    background: linear-gradient(
-      to right bottom,
-      rgba(255, 255, 255, 0.7),
-      rgba(255, 255, 255, 0.3)
-    );
-    border: none;
-    width: 50%;
-    padding: 0.5rem;
-    border-radius: 2rem;
+    overflow: auto;
   }
 
   @media (max-width: 800) {

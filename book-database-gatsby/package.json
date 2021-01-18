@@ -30,6 +30,7 @@
     "gatsby-source-filesystem": "^2.9.0",
     "gatsby-source-sanity": "^6.0.5",
     "gatsby-transformer-sharp": "^2.10.1",
+    "isomorphic-fetch": "^3.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",

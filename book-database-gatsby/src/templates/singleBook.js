@@ -4,13 +4,19 @@ import Img from "gatsby-image";
 import styled from "styled-components";
 import SEO from "../components/SEO";
 import { GlobalStyles } from "../Styles/globalStyles";
+import BookInfo from "../components/BookInfo";
 
 const BookPageStyles = styled.div`
   padding: 2rem;
   display: grid;
   grid-gap: 2rem;
-  grid-template-columns: minmax(200px, auto) auto;
+  grid-template-columns: minmax(auto, 380px) auto;
   grid-column: span 2;
+  @media (max-width: 1000px) {
+    h1 {
+      font-size: 2rem;
+    }
+  }
   @media (max-width: 600px) {
     grid-template-columns: auto;
   }
@@ -24,6 +30,7 @@ export default function SinglePizzaPage({ data: { book } }) {
   useEffect(() => {
     document.body.style.margin = "0px";
   }, []);
+
   return (
     <GlobalStyles>
       <SEO title={book.name} image={book.image?.asset?.fluid?.src} />
@@ -35,13 +42,14 @@ export default function SinglePizzaPage({ data: { book } }) {
               <Img fluid={book.image.asset.fluid} />
             </div>
             <div>
-              <h2 className="mark">{book.name}</h2>
-              <h3>Tags:</h3>
+              <h1 className="mark">{book.name}</h1>
+              <h2>Tags:</h2>
               <ul>
                 {book.tags.map((tag) => (
                   <li key={tag.id}>{tag.name}</li>
                 ))}
               </ul>
+              {/* <BookInfo bookInfo={book.bookInfo}></BookInfo> */}
             </div>
           </BookPageStyles>
         </section>
@@ -63,14 +71,14 @@ export const query = graphql`
         current
       }
       tags {
-        _id
+        id
         name
       }
       name
       isbn
       image {
         asset {
-          fluid(maxWidth: 500) {
+          fluid(maxWidth: 400) {
             ...GatsbySanityImageFluid
           }
         }

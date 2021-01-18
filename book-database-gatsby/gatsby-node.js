@@ -1,5 +1,12 @@
 import path, { resolve } from "path";
 
+async function getBookFromIsbn(isbn) {
+  console.log(isbn);
+  const res = await fetch(`https://openlibrary.org/isbn/${isbn}.json`);
+  const bookInfo = await res.json();
+  return bookInfo;
+}
+
 async function TurnBooksIntoPages({ graphql, actions }) {
   // 1. Get a template for this page
   const bookTemplate = path.resolve("./src/templates/singleBook.js");
@@ -16,7 +23,7 @@ async function TurnBooksIntoPages({ graphql, actions }) {
       }
     }
   `);
-  // 3. Loop over each book and create a page for that pizza
+  // 3. Loop over each book and create a page for that book
   data.books.nodes.forEach((book) => {
     actions.createPage({
       // What is the URL for this new page??
