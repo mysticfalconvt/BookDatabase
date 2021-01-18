@@ -1,6 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 import styled from "styled-components";
+import { Link } from "gatsby";
 
 const DisplayBookStyles = styled.div`
   margin: 1rem;
@@ -57,14 +58,16 @@ export default function DisplayBooks(props) {
       <div className="cards">
         {books.map((book) => {
           return (
-            <div className="card" key={book.slug.current}>
-              <Img
-                className="bookImage"
-                fluid={book.image.asset.fluid}
-                alt={book.name}
-              />
-              <h3>{book.name}</h3>
-            </div>
+            <Link to={`/book/${book.slug.current}`}>
+              <div className="card" key={book.slug.current}>
+                <Img
+                  className="bookImage"
+                  fluid={book.image.asset.fluid}
+                  alt={book.name}
+                />
+                <h3>{book.name}</h3>
+              </div>
+            </Link>
           );
         })}
       </div>
