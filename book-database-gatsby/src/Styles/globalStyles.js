@@ -16,6 +16,10 @@ export const GlobalStyles = styled.div`
     font-weight: 600;
     font-size: 3rem;
     opacity: 0.8;
+    text-align: center;
+    height: max-content;
+    margin: 0;
+    /* flex-basis: 0 0 100%; */
   }
   h2,
   p {
@@ -34,7 +38,7 @@ export const GlobalStyles = styled.div`
     min-height: 100vh;
     background: linear-gradient(to right top, rgba(200, 20, 150, 0.9), #6cdbeb);
     margin: 0px;
-    font-family: "Poppins", sans-serif;
+    font-family: "Goudy Bookletter 1911", serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,7 +57,15 @@ export const GlobalStyles = styled.div`
     border-radius: 2rem;
     z-index: 2;
     backdrop-filter: blur(2rem);
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    overflow: auto;
+    @media (max-width: 500px) {
+      width: 95%;
+      grid-template-columns: 1fr;
+      min-height: 90vh;
+      max-height: 95vh;
+    }
   }
   .circle1,
   .circle2 {
@@ -99,6 +111,27 @@ export const GlobalStyles = styled.div`
     right: 18%;
   }
 
+  .title {
+    margin-bottom: 0rem;
+    padding: 1rem;
+    min-height: fit-content;
+    overflow: auto;
+    grid-column: span 2;
+    h1: {
+      height: 2rem;
+      margin: 0px;
+    }
+    @media (max-width: 500px) {
+      /* display: none; */
+      grid-column: 1;
+      margin: 0px;
+      padding: 0px;
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+
   .link {
     display: flex;
     margin: 2rem 0rem;
@@ -127,5 +160,9 @@ export const GlobalStyles = styled.div`
     width: 50%;
     padding: 0.5rem;
     border-radius: 2rem;
+  }
+
+  @media (max-width: 800) {
+    font-size: 0.8em;
   }
 `;

@@ -38,6 +38,9 @@ export default function Index({ data }) {
       <SEO title="Best Darn Book Database"></SEO>
       <main>
         <section className="glass">
+          <div className="title">
+            <h1>Best Darn Book Database</h1>
+          </div>
           <Dashboard
             selectedTags={selectedTags}
             setSelectedTags={setSelectedTags}

@@ -8,10 +8,25 @@ const DashboardStyles = styled.div`
   flex-direction: column;
   padding: 1rem;
   align-items: center;
-  min-width: min-content;
+  min-width: max-content;
+  min-height: max-content;
   max-width: max-content;
-  /* justify-content: space-evenly; */
 
+  @media (max-width: 800px) {
+    margin: 1rem;
+    padding: 0.5rem;
+  }
+  @media (max-width: 500px) {
+    margin: 0.5em;
+    padding: 0.25rem;
+    display: grid;
+    /* flex-direction: column; */
+    grid-template-columns: repeat(2, 1fr);
+    min-height: 10rem;
+    overflow: auto;
+    grid-auto-flow: dense;
+    max-width: 100%;
+  }
   text-align: center;
   background: linear-gradient(
     to right bottom,
@@ -22,12 +37,30 @@ const DashboardStyles = styled.div`
   .title {
     margin-bottom: 2rem;
     padding: 1rem;
+    min-height: fit-content;
+    overflow: auto;
+    max-width: max-content;
+    h1: {
+      height: 2rem;
+      margin: 0;
+    }
+    @media (max-width: 500px) {
+      display: none;
+      margin: 0;
+      padding: 0;
+    }
   }
   .selectedTags {
     margin-bottom: 1rem;
+    @media (max-width: 500px) {
+      grid-column: 2;
+    }
   }
   .tag {
     padding: 0.2rem;
+    @media (max-width: 500px) {
+      grid-column: 1;
+    }
   }
   button {
     border: none;

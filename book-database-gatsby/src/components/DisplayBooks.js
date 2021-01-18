@@ -52,9 +52,6 @@ export default function DisplayBooks(props) {
   const books = props.books;
   return (
     <DisplayBookStyles>
-      <div className="title">
-        <h1>{props.title}</h1>
-      </div>
       <div className="cards">
         {books.map((book) => {
           return (

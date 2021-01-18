@@ -15,6 +15,16 @@ module.exports = {
       },
     },
     "gatsby-plugin-styled-components",
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Goudy Bookletter 1911`,
+          `source serif pro\:300,400,400i,700`, // you can also specify font weights and styles
+        ],
+        display: "swap",
+      },
+    },
     // {
     //   resolve: "gatsby-plugin-google-analytics",
     //   options: {
