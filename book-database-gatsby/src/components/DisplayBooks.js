@@ -53,7 +53,7 @@ export default function DisplayBooks(props) {
   return (
     <DisplayBookStyles>
       <div className="title">
-        <h1>Books</h1>
+        <h1>{props.title}</h1>
       </div>
       <div className="cards">
         {books.map((book) => {

@@ -6,7 +6,6 @@ import SEO from "../components/SEO";
 import { GlobalStyles } from "../Styles/globalStyles";
 
 function filterBooks(allBooks, tags) {
-  console.log(tags.length);
   if (!tags.length) {
     return allBooks;
   }
@@ -45,7 +44,10 @@ export default function Index({ data }) {
             tagList={tagList}
             setTaglist={setTaglist}
           ></Dashboard>
-          <DisplayBooks books={booksToDisplay}></DisplayBooks>
+          <DisplayBooks
+            title="The Best Darn Book Database"
+            books={booksToDisplay}
+          ></DisplayBooks>
         </section>
       </main>
       <div className="circle1"></div>

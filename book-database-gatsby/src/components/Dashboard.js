@@ -14,9 +14,9 @@ const DashboardStyles = styled.div`
 
   text-align: center;
   background: linear-gradient(
-    to top left,
-    rgba(255, 255, 220, 0.3),
-    rgba(220, 255, 255, 0.1)
+    to right bottom,
+    rgba(200, 20, 150, 0.2),
+    rgba(108, 219, 235, 0.3)
   );
   border-radius: 2rem;
   .title {
