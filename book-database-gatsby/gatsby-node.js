@@ -1,11 +1,11 @@
 import path, { resolve } from "path";
 
-async function getBookFromIsbn(isbn) {
-  console.log(isbn);
-  const res = await fetch(`https://openlibrary.org/isbn/${isbn}.json`);
-  const bookInfo = await res.json();
-  return bookInfo;
-}
+// async function getBookFromIsbn(isbn) {
+//   console.log(isbn);
+//   const res = await fetch(`https://openlibrary.org/isbn/${isbn}.json`);
+//   const bookInfo = await res.json();
+//   return bookInfo;
+// }
 
 async function TurnBooksIntoPages({ graphql, actions }) {
   // 1. Get a template for this page

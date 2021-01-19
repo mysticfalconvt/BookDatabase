@@ -1,10 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 import SEO from "../components/SEO";
 import { GlobalStyles } from "../Styles/globalStyles";
 import BookInfo from "../components/BookInfo";
+
+async function getBookFromIsbn(isbn) {
+  // console.log(isbn);
+  const res = await fetch(`https://openlibrary.org/isbn/${isbn}.json`);
+  const bookInfo = await res.json();
+  // console.log(bookInfo)
+  return bookInfo;
+}
 
 const BookPageStyles = styled.div`
   padding: 2rem;
@@ -22,15 +30,28 @@ const BookPageStyles = styled.div`
   }
   .image {
     border-radius: 5%;
-    max-height: max-content;
+    /* max-height: max-content; */
   }
 `;
 
 export default function SinglePizzaPage({ data: { book } }) {
+  const [bookInfo, setBookInfo] = useState();
   useEffect(() => {
-    document.body.style.margin = "0px";
-  }, []);
 
+    async function getBookFromIsbn(isbn) {
+      // console.log(isbn);
+      const res = await fetch(`https://openlibrary.org/isbn/${isbn}.json`);
+      const bookInfo = await res.json();
+      // console.log(bookInfo)
+      setBookInfo(bookInfo)
+      return bookInfo;
+    }
+
+    document.body.style.margin = "0px";
+    const newBookInfo =  getBookFromIsbn(book.isbn)
+     setBookInfo(newBookInfo)
+  }, []);
+// console.dir(bookInfo)
   return (
     <GlobalStyles>
       <SEO title={book.name} image={book.image?.asset?.fluid?.src} />
@@ -49,7 +70,7 @@ export default function SinglePizzaPage({ data: { book } }) {
                   <li key={tag.id}>{tag.name}</li>
                 ))}
               </ul>
-              {/* <BookInfo bookInfo={book.bookInfo}></BookInfo> */}
+              <BookInfo bookInfo={bookInfo}></BookInfo>
             </div>
           </BookPageStyles>
         </section>

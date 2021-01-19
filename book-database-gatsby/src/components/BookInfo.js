@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function BookInfo({ bookInfo }) {
+  console.dir(bookInfo)
   if (bookInfo) {
     return (
       <div>
