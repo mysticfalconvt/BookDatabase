@@ -39,7 +39,7 @@ const DisplayBookStyles = styled.div`
     box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
     justify-content: space-between;
     /* overflow: auto; */
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
   }
 
   .bookImage {
