@@ -16,16 +16,15 @@ const DashboardStyles = styled.div`
     margin: 1rem;
     padding: 0.5rem;
   }
-  @media (max-width: 650px) {
+  @media (max-width: 550px) {
     margin: 0.25em;
     padding: 1rem;
     width: 100%;
-    /* display: grid; */
-    flex-direction: column;
+    flex-direction: row;
     grid-template-columns: repeat(2, 1fr);
-    min-height: 10rem;
-    overflow: auto;
-    /* grid-auto-flow: dense; */
+    min-height: 8rem;
+    max-height: auto;
+    overflow: hidden;
     max-width: max-content;
     break-after: always;
   }
@@ -40,7 +39,6 @@ const DashboardStyles = styled.div`
     margin-bottom: 2rem;
     padding: 1rem;
     min-height: fit-content;
-    /* overflow: auto; */
     max-width: max-content;
     h1: {
       height: 2rem;

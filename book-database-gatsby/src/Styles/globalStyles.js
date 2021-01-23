@@ -134,12 +134,12 @@ export const GlobalStyles = styled.div`
       height: 2rem;
       margin: 0px;
     }
-    @media (max-width: 500px) {
+    @media (max-width: 550px) {
       grid-column: 1;
       margin: 0px;
       padding: 0px;
       h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
     }
   }
