@@ -1,9 +1,9 @@
-import { graphql } from "gatsby";
-import React, { useEffect, useState } from "react";
-import Dashboard from "../components/Dashboard";
-import DisplayBooks from "../components/DisplayBooks";
-import SEO from "../components/SEO";
-import { GlobalStyles } from "../Styles/globalStyles";
+import { graphql } from 'gatsby';
+import React, { useEffect, useState } from 'react';
+import Dashboard from '../components/Dashboard';
+import DisplayBooks from '../components/DisplayBooks';
+import SEO from '../components/SEO';
+import { GlobalStyles } from '../Styles/globalStyles';
 
 function filterBooks(allBooks, tags) {
   if (!tags.length) {
@@ -19,7 +19,8 @@ function filterBooks(allBooks, tags) {
 
 export default function Index({ data }) {
   useEffect(() => {
-    document.body.style.margin = "0px";
+    document.body.style.margin = '0px';
+    document.body.style.overflow = 'hidden';
   }, []);
   const [tagList, setTaglist] = useState([...data.tags.nodes]);
   const [selectedTags, setSelectedTags] = useState([]);
@@ -29,34 +30,36 @@ export default function Index({ data }) {
     setBooksToDisplay(
       filterBooks(
         allBooks,
-        selectedTags.map((tag) => tag.name),
-      ),
+        selectedTags.map((tag) => tag.name)
+      )
     );
   }, [selectedTags]);
   return (
     <GlobalStyles>
-      <SEO title="Best Darn Book Database"></SEO>
+      <SEO title="Best Darn Book Database" />
       <main>
         <section className="glass">
           <div className="title">
             <h1>Best Darn Book Database</h1>
           </div>
-          <Dashboard
-            selectedTags={selectedTags}
-            setSelectedTags={setSelectedTags}
-            tagList={tagList}
-            setTaglist={setTaglist}
-          ></Dashboard>
-          <DisplayBooks
-            title="The Best Darn Book Database"
-            books={booksToDisplay}
-          ></DisplayBooks>
+          <div className="container">
+            <Dashboard
+              selectedTags={selectedTags}
+              setSelectedTags={setSelectedTags}
+              tagList={tagList}
+              setTaglist={setTaglist}
+            />
+            <DisplayBooks
+              title="The Best Darn Book Database"
+              books={booksToDisplay}
+            />
+          </div>
         </section>
       </main>
-      <div className="circle1"></div>
-      <div className="circle2"></div>
-      <div className="circle3"></div>
-      <div className="circle4"></div>
+      <div className="circle1" />
+      <div className="circle2" />
+      <div className="circle3" />
+      <div className="circle4" />
     </GlobalStyles>
   );
 }

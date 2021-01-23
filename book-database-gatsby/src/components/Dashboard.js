@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 const DashboardStyles = styled.div`
   flex: 1;
@@ -16,16 +16,18 @@ const DashboardStyles = styled.div`
     margin: 1rem;
     padding: 0.5rem;
   }
-  @media (max-width: 500px) {
-    margin: 0.5em;
-    padding: 0.25rem;
-    display: grid;
-    /* flex-direction: column; */
+  @media (max-width: 650px) {
+    margin: 0.25em;
+    padding: 1rem;
+    width: 100%;
+    /* display: grid; */
+    flex-direction: column;
     grid-template-columns: repeat(2, 1fr);
     min-height: 10rem;
     overflow: auto;
-    grid-auto-flow: dense;
-    max-width: 100%;
+    /* grid-auto-flow: dense; */
+    max-width: max-content;
+    break-after: always;
   }
   text-align: center;
   background: linear-gradient(
@@ -38,13 +40,13 @@ const DashboardStyles = styled.div`
     margin-bottom: 2rem;
     padding: 1rem;
     min-height: fit-content;
-    overflow: auto;
+    /* overflow: auto; */
     max-width: max-content;
     h1: {
       height: 2rem;
       margin: 0;
     }
-    @media (max-width: 500px) {
+    @media (max-width: 550px) {
       display: none;
       margin: 0;
       padding: 0;
@@ -91,40 +93,37 @@ export default function Dashboard({
         <h2>Choose Tags</h2>
       </div>
       <div className="selectedTags">
-        {selectedTags.map((tag, index) => {
-          return (
-            <div className="tag" key={tag.id}>
-              <button
-                type="button"
-                onClick={() => {
-                  setTaglist([...tagList, tag]);
-                  selectedTags.splice(index, 1);
-                  setSelectedTags([...selectedTags]);
-                }}
-              >
-                ❌ {tag.name}
-              </button>
-            </div>
-          );
-        })}
+        {selectedTags.length > 0 && <span>Selected:</span>}
+        {selectedTags.map((tag, index) => (
+          <div className="tag" key={tag.id}>
+            <button
+              type="button"
+              onClick={() => {
+                setTaglist([...tagList, tag]);
+                selectedTags.splice(index, 1);
+                setSelectedTags([...selectedTags]);
+              }}
+            >
+              ❌ {tag.name}
+            </button>
+          </div>
+        ))}
       </div>
       <div className="tags">
-        {tagList.map((tag, index) => {
-          return (
-            <div key={tag.id} className="tag">
-              <button
-                type="button"
-                onClick={() => {
-                  setSelectedTags([...selectedTags, tag]);
-                  tagList.splice(index, 1);
-                  setTaglist(tagList);
-                }}
-              >
-                {tag.name}
-              </button>
-            </div>
-          );
-        })}
+        {tagList.map((tag, index) => (
+          <div key={tag.id} className="tag">
+            <button
+              type="button"
+              onClick={() => {
+                setSelectedTags([...selectedTags, tag]);
+                tagList.splice(index, 1);
+                setTaglist(tagList);
+              }}
+            >
+              {tag.name}
+            </button>
+          </div>
+        ))}
       </div>
     </DashboardStyles>
   );

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { graphql } from "gatsby";
-import Img from "gatsby-image";
-import styled from "styled-components";
-import SEO from "../components/SEO";
-import { GlobalStyles } from "../Styles/globalStyles";
-import BookInfo from "../components/BookInfo";
+import React, { useEffect, useState } from 'react';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import styled from 'styled-components';
+import SEO from '../components/SEO';
+import { GlobalStyles } from '../Styles/globalStyles';
+import BookInfo from '../components/BookInfo';
 
 async function getBookFromIsbn(isbn) {
   // console.log(isbn);
@@ -37,25 +37,24 @@ const BookPageStyles = styled.div`
 export default function SinglePizzaPage({ data: { book } }) {
   const [bookInfo, setBookInfo] = useState();
   useEffect(() => {
-
     async function getBookFromIsbn(isbn) {
       // console.log(isbn);
       const res = await fetch(`https://openlibrary.org/isbn/${isbn}.json`);
       const bookInfo = await res.json();
       // console.log(bookInfo)
-      setBookInfo(bookInfo)
+      setBookInfo(bookInfo);
       return bookInfo;
     }
 
-    document.body.style.margin = "0px";
-    const newBookInfo =  getBookFromIsbn(book.isbn)
-     setBookInfo(newBookInfo)
+    document.body.style.margin = '0px';
+    const newBookInfo = getBookFromIsbn(book.isbn);
+    setBookInfo(newBookInfo);
   }, []);
-// console.dir(bookInfo)
+  // console.dir(bookInfo)
   return (
     <GlobalStyles>
       <SEO title={book.name} image={book.image?.asset?.fluid?.src} />
-      <SEO title="Best Darn Book Database"></SEO>
+      <SEO title="Best Darn Book Database" />
       <main>
         <section className="glass">
           <BookPageStyles>
@@ -63,22 +62,22 @@ export default function SinglePizzaPage({ data: { book } }) {
               <Img fluid={book.image.asset.fluid} />
             </div>
             <div>
-              <h1 className="mark">{book.name}</h1>
+              <h1 className="">{book.name}</h1>
               <h2>Tags:</h2>
               <ul>
                 {book.tags.map((tag) => (
                   <li key={tag.id}>{tag.name}</li>
                 ))}
               </ul>
-              <BookInfo bookInfo={bookInfo}></BookInfo>
+              <BookInfo bookInfo={bookInfo} />
             </div>
           </BookPageStyles>
         </section>
       </main>
-      <div className="circle1"></div>
-      <div className="circle2"></div>
-      <div className="circle3"></div>
-      <div className="circle4"></div>
+      <div className="circle1" />
+      <div className="circle2" />
+      <div className="circle3" />
+      <div className="circle4" />
     </GlobalStyles>
   );
 }

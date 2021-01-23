@@ -1,9 +1,15 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const GlobalStyles = styled.div`
   height: 100vh; //100% view height
   width: 100vw; // 100% view width
   margin: 0;
+  /* .glass::-webkit-scrollbar-track {
+    background: red;
+  }
+  .glass::-webkit-scrollbar {
+    width: 100px;
+  } */
   * {
     /* margin: 0; */
     /* padding: 0; */
@@ -37,7 +43,7 @@ export const GlobalStyles = styled.div`
     min-height: 100vh;
     background: linear-gradient(to right top, rgba(200, 20, 150, 0.9), #6cdbeb);
     margin: 0px;
-    font-family: "Goudy Bookletter 1911", serif;
+    font-family: 'Goudy Bookletter 1911', serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,13 +63,23 @@ export const GlobalStyles = styled.div`
     z-index: 2;
     backdrop-filter: blur(2rem);
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    overflow: auto;
-    @media (max-width: 500px) {
+    grid-template-rows: auto 3fr;
+    overflow: hidden;
+    @media (max-width: 550px) {
       width: 95%;
-      grid-template-columns: 1fr;
+      /* grid-template-columns: 1fr; */
       min-height: 90vh;
       max-height: 95vh;
+    }
+  }
+
+  .container {
+    display: flex;
+    @media (max-width: 550px) {
+      flex-direction: column;
+      width: 100%;
+      justify-content: space-around;
+      align-items: center;
     }
   }
   .circle1,
@@ -114,14 +130,11 @@ export const GlobalStyles = styled.div`
     margin-bottom: 0rem;
     padding: 1rem;
     min-height: fit-content;
-    overflow: auto;
-    grid-column: span 2;
     h1: {
       height: 2rem;
       margin: 0px;
     }
     @media (max-width: 500px) {
-      /* display: none; */
       grid-column: 1;
       margin: 0px;
       padding: 0px;
@@ -133,7 +146,7 @@ export const GlobalStyles = styled.div`
 
   .books {
     flex: 2;
-    overflow: auto;
+    /* overflow: auto; */
   }
 
   @media (max-width: 800) {

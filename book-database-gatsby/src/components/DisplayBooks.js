@@ -1,14 +1,14 @@
-import React from "react";
-import Img from "gatsby-image";
-import styled from "styled-components";
-import { Link } from "gatsby";
+import React from 'react';
+import Img from 'gatsby-image';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 const DisplayBookStyles = styled.div`
   margin: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  overflow: auto;
+  /* overflow: hidden; */
 
   .cards {
     display: grid;
@@ -48,24 +48,22 @@ const DisplayBookStyles = styled.div`
 `;
 
 export default function DisplayBooks(props) {
-  const books = props.books;
+  const { books } = props;
   return (
     <DisplayBookStyles>
       <div className="cards">
-        {books.map((book) => {
-          return (
-            <Link to={`/book/${book.slug.current}`} key={book.slug.current}>
-              <div className="card">
-                <Img
-                  className="bookImage"
-                  fluid={book.image.asset.fluid}
-                  alt={book.name}
-                />
-                <h3>{book.name}</h3>
-              </div>
-            </Link>
-          );
-        })}
+        {books.map((book) => (
+          <Link to={`/book/${book.slug.current}`} key={book.slug.current}>
+            <div className="card">
+              <Img
+                className="bookImage"
+                fluid={book.image.asset.fluid}
+                alt={book.name}
+              />
+              <h3>{book.name}</h3>
+            </div>
+          </Link>
+        ))}
       </div>
     </DisplayBookStyles>
   );
