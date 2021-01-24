@@ -36,6 +36,13 @@ module.exports = {
     "gatsby-plugin-sitemap",
     "gatsby-plugin-offline",
     {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: 'MyNodes',
+        imagePath: 'path.to.image',
+      },
+    },
+    {
       resolve: "gatsby-plugin-manifest",
       options: {
         icon: "src/images/icon.png",

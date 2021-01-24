@@ -55,6 +55,8 @@ const DisplayBookStyles = styled.div`
     display: block;
     border-radius: 1rem;
     /* overflow: auto; */
+    width: 100%;
+    height: auto;
   }
 `;
 
@@ -66,10 +68,14 @@ export default function DisplayBooks(props) {
         {books.map((book) => (
           <Link to={`/book/${book.slug.current}`} key={book.slug.current}>
             <div className="card">
-              <Img
+              {/* <Img
                 className="bookImage"
                 fluid={book.image.asset.fluid}
                 alt={book.name}
+              /> */}
+              <img
+                src={`http://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg`}
+                className="bookImage"
               />
               <h3>{book.name}</h3>
             </div>

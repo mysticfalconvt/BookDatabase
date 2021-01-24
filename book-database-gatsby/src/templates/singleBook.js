@@ -6,16 +6,16 @@ import SEO from '../components/SEO';
 import { GlobalStyles } from '../Styles/globalStyles';
 import BookInfo from '../components/BookInfo';
 
-async function getBookFromIsbn(isbn) {
-  // console.log(isbn);
-  const res = await fetch(`https://openlibrary.org/isbn/${isbn}.json`);
-  const bookInfo = await res.json();
-  // console.log(bookInfo)
-  return bookInfo;
-}
+// async function getBookFromIsbn(isbn) {
+//   const res = await fetch(`https://openlibrary.org/isbn/${isbn}.json`);
+//   const bookInfo = await res.json();
+//   setBookInfo(bookInfo);
+//   return bookInfo;
+// }
 
 const BookPageStyles = styled.div`
   padding: 2rem;
+  overflow: auto;
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: minmax(auto, 380px) auto;
@@ -34,21 +34,26 @@ const BookPageStyles = styled.div`
   }
 `;
 
-export default function SinglePizzaPage({ data: { book } }) {
+export default function SingleBookPage({ data: { book } }) {
   const [bookInfo, setBookInfo] = useState();
   useEffect(() => {
+    function mycallback(book) {
+      return JSON.stringify(book);
+    }
     async function getBookFromIsbn(isbn) {
-      // console.log(isbn);
-      const res = await fetch(`https://openlibrary.org/isbn/${isbn}.json`);
-      const bookInfo = await res.json();
-      // console.log(bookInfo)
-      setBookInfo(bookInfo);
+      // const res = await fetch(`https://openlibrary.org/isbn/${isbn}.json`);
+      const res = await fetch(
+        `https://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&format=json&jscmd=data`
+      );
+      console.log(res);
+      const newbookInfo = await res.json();
+      setBookInfo(newbookInfo);
       return bookInfo;
     }
 
     document.body.style.margin = '0px';
     const newBookInfo = getBookFromIsbn(book.isbn);
-    setBookInfo(newBookInfo);
+    // setBookInfo(newBookInfo);
   }, []);
   // console.dir(bookInfo)
   return (
@@ -58,9 +63,13 @@ export default function SinglePizzaPage({ data: { book } }) {
       <main>
         <section className="glass">
           <BookPageStyles>
-            <div className="image">
+            {/* <div className="image">
               <Img fluid={book.image.asset.fluid} />
-            </div>
+            </div> */}
+            <img
+            width="100%"
+              src={`http://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg`}
+            />
             <div>
               <h1 className="">{book.name}</h1>
               <h2>Tags:</h2>
@@ -73,6 +82,9 @@ export default function SinglePizzaPage({ data: { book } }) {
             </div>
           </BookPageStyles>
         </section>
+        {/* <div style={{ overflow: 'auto', height: 'auto' }}>
+          <pre>{JSON.stringify(bookInfo, null, 2)}</pre>
+        </div> */}
       </main>
       <div className="circle1" />
       <div className="circle2" />
