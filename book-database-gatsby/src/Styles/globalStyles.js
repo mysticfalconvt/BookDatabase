@@ -67,7 +67,6 @@ export const GlobalStyles = styled.div`
     overflow: hidden;
     @media (max-width: 550px) {
       width: 95%;
-      /* grid-template-columns: 1fr; */
       min-height: 90vh;
       max-height: 95vh;
     }
